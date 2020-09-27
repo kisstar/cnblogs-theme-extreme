@@ -1,0 +1,7 @@
+{
+  "*.{htm,html}": ["yarn lint:html"],
+  "*.{css,scss,sass}": ["yarn lint:style"],
+  "*.{js,ts}": ["yarn lint:es"],
+  "*.md": ["yarn lint:md"],
+  "*.{js,ts,css,scss,sass,md,json}": ["prettier --write"]
+}
