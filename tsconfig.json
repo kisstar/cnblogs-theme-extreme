@@ -15,6 +15,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["src/**/*", "./typings/*.d.ts"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
