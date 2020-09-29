@@ -39,7 +39,10 @@
         "plugin:promise/recommended",
         "plugin:unicorn/recommended",
         "plugin:prettier/recommended"
-      ]
+      ],
+      "rules": {
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+      }
     },
     {
       "files": ["**/*.{js,ts}"],
