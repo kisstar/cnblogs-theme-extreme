@@ -9,8 +9,8 @@ process.on('unhandledRejection', (error) => {
   throw error;
 });
 
-const fs = require('fs-extra');
-const path = require('path');
+// const fs = require('fs-extra');
+// const path = require('path');
 const webpack = require('webpack');
 const formatMessages = require('webpack-format-messages');
 const chalk = require('chalk');
@@ -27,11 +27,15 @@ function compilerHander(error, stats) {
       warnings: [],
     };
   } else {
+    // const publicDirectory = path.resolve(__dirname, '../public');
+    // if (fs.existsSync(publicDirectory)) {
+    //   fs.copySync(publicDirectory, path.resolve(__dirname, '../dist'), {
+    //     dereference: true,
+    //     filter: (file) => true,
+    //   });
+    // }
+
     messages = formatMessages(stats);
-    fs.copySync(path.resolve(__dirname, '../public'), path.resolve(__dirname, '../dist'), {
-      dereference: true,
-      // filter: (file) => file !== filename,
-    });
   }
 
   const hasErrors = !!messages.errors.length;

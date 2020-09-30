@@ -4,6 +4,8 @@
   "private": false,
   "description": "Black and white, a brief and extreme cnblogs theme.",
   "scripts": {
+    "start": "node scripts/start",
+    "build": "node scripts/build",
     "lint:html": "htmlhint public/**/*.{htm,html}",
     "lint:style": "stylelint --allow-empty-input \"src/**/*.{css,scss,sass}\"",
     "lint:es": "eslint --no-error-on-unmatched-pattern --cache --ext .ts,.js .",

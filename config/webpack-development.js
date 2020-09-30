@@ -1,5 +1,7 @@
 const path = require('path');
 
+const CNBLOGS_PUBLIC = 'https://www.cnblogs.com';
+
 function getWebpackDevelopmentConfig() {
   return {
     compress: true,
@@ -12,6 +14,13 @@ function getWebpackDevelopmentConfig() {
     // 在编译出错的时候，在浏览器页面上显示错误
     overlay: true,
     clientLogLevel: 'warn',
+
+    // 对于未处理的请求将重定向至博客园，以便获取页面中来自博客园的静态资源
+    after: function setRequestHandler(app) {
+      app.get('*', function handler(request, response) {
+        response.redirect(CNBLOGS_PUBLIC + request.url);
+      });
+    },
   };
 }
 

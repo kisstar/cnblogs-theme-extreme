@@ -1,5 +1,6 @@
 // Ensure environment variables are read
 require('dotenv').config();
+const fs = require('fs-extra');
 const path = require('path');
 const webpack = require('webpack');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
@@ -13,10 +14,35 @@ const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
 const postcssPresetEnv = require('postcss-preset-env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+function getHtmlConfig() {
+  const rFile = /^\w+\.html$/;
+  const directories = fs.readdirSync(path.resolve(__dirname, '../src/pages'));
+
+  return directories
+    .map((file) => {
+      const [filename] = file.match(rFile) || [];
+      if (filename) {
+        return new HtmlWebpackPlugin({
+          template: path.resolve(__dirname, '../src/pages', file),
+          filename,
+        });
+      }
+      return false;
+    })
+    .concat(
+      new HtmlWebpackPlugin({
+        template: 'public/index.html',
+        chunks: [],
+      }),
+    )
+    .filter(Boolean);
+}
+
 function getWebpackConfig(webpackEnvironment) {
   const isEnvironmentDevelopment = webpackEnvironment === 'development';
   const isEnvironmentProduction = webpackEnvironment === 'production';
-  const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+  const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP === 'true';
+  const htmlPlugins = isEnvironmentDevelopment ? getHtmlConfig() : [];
 
   const config = {
     mode: isEnvironmentProduction ? 'production' : isEnvironmentDevelopment && 'development',
@@ -28,9 +54,7 @@ function getWebpackConfig(webpackEnvironment) {
     output: {
       publicPath: process.env.PUBLIC_PATH,
       path: path.resolve(__dirname, '../dist'),
-      filename: isEnvironmentProduction
-        ? 'js/extreme.[contenthash:8].js'
-        : isEnvironmentDevelopment && 'js/bundle.js',
+      filename: 'extreme.min.js',
     },
     optimization: {
       minimize: isEnvironmentProduction,
@@ -75,15 +99,16 @@ function getWebpackConfig(webpackEnvironment) {
           },
         }),
       ],
+
       // 自动拆分 vendor 和 commons
-      splitChunks: {
-        chunks: 'all',
-        name: false,
-      },
+      // splitChunks: {
+      //   chunks: 'all',
+      //   name: false,
+      // },
       // 保持运行时块的分隔，以启用长期缓存
-      runtimeChunk: {
-        name: (entrypoint) => `runtime-${entrypoint.name}`,
-      },
+      // runtimeChunk: {
+      //   name: (entrypoint) => `runtime-${entrypoint.name}`,
+      // },
     },
     resolve: {
       extensions: ['.ts', '.js', '.json'],
@@ -159,10 +184,9 @@ function getWebpackConfig(webpackEnvironment) {
       isEnvironmentProduction &&
         new MiniCssExtractPlugin({
           // Options similar to the same options in webpackOptions.output
-          filename: 'css/extreme.[contenthash:8].min.css',
-          chunkFilename: 'css/[name].[contenthash:8].chunk.css',
+          filename: 'extreme.min.css',
         }),
-      new HtmlWebpackPlugin(),
+      ...htmlPlugins,
     ].filter(Boolean),
   };
 
