@@ -64,6 +64,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-unicorn": "^22.0.0",
     "fs-extra": "^9.0.1",
+    "handlebars": "^4.7.6",
     "html-webpack-plugin": "^4.5.0",
     "htmlhint": "^0.14.1",
     "husky": "^4.3.0",

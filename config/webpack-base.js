@@ -13,8 +13,10 @@ const postcssNormalize = require('postcss-normalize');
 const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
 const postcssPresetEnv = require('postcss-preset-env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackHandlerPlugin = require('../plugins/html-webpack-handler');
+const cnblogsConfig = require('./cnblogs-default');
 
-function getHtmlConfig() {
+function getHtmlConfig(isEnvironmentDevelopment) {
   const rFile = /^\w+\.html$/;
   const directories = fs.readdirSync(path.resolve(__dirname, '../src/pages'));
 
@@ -25,15 +27,17 @@ function getHtmlConfig() {
         return new HtmlWebpackPlugin({
           template: path.resolve(__dirname, '../src/pages', file),
           filename,
+          inject: isEnvironmentDevelopment,
         });
       }
       return false;
     })
     .concat(
-      new HtmlWebpackPlugin({
-        template: 'public/index.html',
-        chunks: [],
-      }),
+      isEnvironmentDevelopment &&
+        new HtmlWebpackPlugin({
+          template: 'public/index.html',
+          chunks: [],
+        }),
     )
     .filter(Boolean);
 }
@@ -42,7 +46,7 @@ function getWebpackConfig(webpackEnvironment) {
   const isEnvironmentDevelopment = webpackEnvironment === 'development';
   const isEnvironmentProduction = webpackEnvironment === 'production';
   const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP === 'true';
-  const htmlPlugins = isEnvironmentDevelopment ? getHtmlConfig() : [];
+  const htmlPlugins = getHtmlConfig(isEnvironmentDevelopment);
 
   const config = {
     mode: isEnvironmentProduction ? 'production' : isEnvironmentDevelopment && 'development',
@@ -187,6 +191,7 @@ function getWebpackConfig(webpackEnvironment) {
           filename: 'extreme.min.css',
         }),
       ...htmlPlugins,
+      new HtmlWebpackHandlerPlugin(cnblogsConfig),
     ].filter(Boolean),
   };
 
