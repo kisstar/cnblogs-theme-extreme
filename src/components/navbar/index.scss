@@ -1,0 +1,120 @@
+@import '../../styles/theme';
+@import './mixin';
+
+$navbar-prefix-cls: $prefix-cls + '-navbar';
+
+.#{$navbar-prefix-cls} {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+  background: $navbar-bg;
+  border-bottom: 1px solid $navbar-border-color;
+
+  a {
+    color: $navbar-item-color;
+
+    &:hover {
+      color: $navbar-item-active-color;
+    }
+  }
+}
+
+.#{$navbar-prefix-cls}-brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+
+  img {
+    margin-right: 0.2rem;
+  }
+}
+
+.#{$navbar-prefix-cls}-toggler {
+  padding: 0.25rem 0.75rem;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-color: $navbar-toggler-border-color;
+  border-radius: 0.25rem;
+  outline: none;
+  cursor: pointer;
+
+  .#{$navbar-prefix-cls}-toggler-icon {
+    display: inline-block;
+    width: 0.8em;
+    height: 1em;
+    vertical-align: middle;
+    background: no-repeat center center;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-size: 100% 100%;
+  }
+}
+
+.#{$navbar-prefix-cls}-collapse {
+  flex-basis: 100%;
+
+  &:not(.#{$navbar-prefix-cls}-show) {
+    display: none;
+  }
+}
+
+.#{$navbar-prefix-cls}-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: $navbar-mask-bg;
+}
+
+.#{$navbar-prefix-cls}-nav {
+  margin-bottom: 0;
+  line-height: $navbar-height;
+  list-style: none;
+  border-top: 1px solid $navbar-border-color;
+}
+
+@media (min-width: $media-breakpoint) {
+  .#{$navbar-prefix-cls} {
+    padding-top: 0;
+    padding-right: 0.5rem;
+    padding-bottom: 0;
+  }
+
+  .#{$navbar-prefix-cls}-collapse {
+    display: flex !important;
+    flex: auto 1;
+  }
+
+  .#{$navbar-prefix-cls}-toggler,
+  .#{$navbar-prefix-cls}-mask {
+    display: none;
+  }
+
+  .#{$navbar-prefix-cls}-nav {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    margin-top: 0;
+    border-top-width: 0;
+  }
+
+  .#{$navbar-prefix-cls}-item {
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  .#{$navbar-prefix-cls}-link {
+    @include borer-slide-right;
+
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+}

@@ -1,0 +1,22 @@
+<nav class="{{prefixCls}}-navbar">
+  <a class="{{prefixCls}}-navbar-brand" href="#">
+    {{#if logo}}
+    <img src="{{logo}}" width="30" height="30">
+    {{/if}}
+    {{title}}
+  </a>
+  <button class="{{prefixCls}}-navbar-toggler" type="button">
+    <span class="{{prefixCls}}-navbar-toggler-icon"></span>
+  </button>
+
+  <div class="{{prefixCls}}-navbar-collapse">
+    <div class="{{prefixCls}}-navbar-mask"></div>
+    <ul class="{{prefixCls}}-navbar-nav">
+      {{#each list}}
+      <li class="{{../prefixCls}}-navbar-item">
+        <a class="{{../prefixCls}}-navbar-link" href="{{href}}">{{text}}</a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</nav>

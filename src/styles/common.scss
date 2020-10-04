@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $gray-900;
+  font-size: $font-size-base;
+}
+
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+  background-color: transparent;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
