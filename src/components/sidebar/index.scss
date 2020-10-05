@@ -74,4 +74,12 @@ $sidebar-prefix-cls: $prefix-cls + '-sidebar';
       }
     }
   }
+
+  // stylelint-disable-next-line selector-class-pattern
+  .blogStats {
+    position: absolute;
+    bottom: 1rem;
+    color: $muted-color;
+    font-size: 12px;
+  }
 }

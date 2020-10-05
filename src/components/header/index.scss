@@ -16,22 +16,15 @@ $header-prefix-cls: $prefix-cls + '-header';
   position: relative;
   height: 500px;
   padding: 16px;
-  background-image: url('https://images.cnblogs.com/cnblogs_com/dongwanhong/1857964/o_201005041117lum3n--RBuQ2PK_L8-unsplash.jpg');
+  background-image: linear-gradient(#00c1de, #000),
+    url('https://images.cnblogs.com/cnblogs_com/dongwanhong/1857964/o_201005115230landscape.jpeg');
   background-size: 100% 100%;
   background-attachment: fixed;
+  background-blend-mode: lighten;
 
   h2 {
     color: $header-sub-title-color;
     font-style: italic;
-  }
-
-  // stylelint-disable-next-line selector-class-pattern
-  .blogStats {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 8%;
-    color: $muted-color;
-    font-size: 12px;
   }
 }
 
@@ -63,4 +56,35 @@ $header-prefix-cls: $prefix-cls + '-header';
   // border-width: 0;
   // outline: none;
   display: none; // 隐藏搜索按钮
+}
+
+#top_nav {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  display: flex; // 在 custom 主题下默认被添加的 .navbar-custom 所隐藏
+  flex-direction: row;
+  width: 80%;
+  height: 100px;
+  background-color: $gray-700;
+  transform: translateX(-50%);
+}
+
+#navbar_login_status {
+  margin: 0;
+  padding: 0.5rem;
+  border: 1px solid;
+  border-radius: 5px;
+
+  .navbar-anonymous {
+    &:last-child {
+      margin-right: 24px;
+    }
+  }
+}
+
+@media (max-width: $media-down-breakpoint) {
+  #nav_left {
+    display: none;
+  }
 }
