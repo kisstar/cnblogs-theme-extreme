@@ -1,0 +1,85 @@
+/* stylelint-disable selector-max-id */
+
+@import '../../styles/theme';
+
+$sidebar-prefix-cls: $prefix-cls + '-sidebar';
+
+#home {
+  position: absolute;
+  left: 0;
+  transition: left 500ms ease-in;
+
+  &.#{$sidebar-prefix-cls}-open {
+    left: $sidebar-width;
+
+    #navigator {
+      transform: translateX(0);
+    }
+  }
+}
+
+#navigator {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: $sidebar-width;
+  padding: 0 1rem 1rem;
+  background-color: $sidebar-bg;
+  transform: translateX(-100%);
+  transition: transform 500ms ease-in;
+
+  &::before {
+    position: fixed;
+    top: $navbar-height + 0.5rem;
+    right: -12px;
+    width: 12px;
+    height: 8.625rem;
+    background-image: url('https://images.cnblogs.com/cnblogs_com/dongwanhong/1857964/o_201005073036show_arrow.png');
+    background-size: 100% 100%;
+    cursor: pointer;
+    content: ' ';
+  }
+
+  #navList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .#{$sidebar-prefix-cls}-brand {
+    display: flex;
+    align-items: center;
+    height: $navbar-height;
+    font-size: 1.25rem;
+
+    img {
+      margin-right: 0.2rem;
+    }
+  }
+
+  li {
+    line-height: 1.5;
+
+    &:first-of-type {
+      margin-top: 1rem;
+    }
+
+    a {
+      display: block;
+      padding: 0.5rem;
+
+      &:hover {
+        background-color: $sidebar-hover-bg;
+      }
+    }
+  }
+
+  // stylelint-disable-next-line selector-class-pattern
+  .blogStats {
+    position: absolute;
+    bottom: 0.5rem;
+    color: $muted-color;
+    font-size: 12px;
+  }
+}

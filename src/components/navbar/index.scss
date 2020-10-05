@@ -75,7 +75,7 @@ $navbar-prefix-cls: $prefix-cls + '-navbar';
 
 .#{$navbar-prefix-cls}-nav {
   margin-bottom: 0;
-  line-height: $navbar-height;
+  line-height: $navbar-line-height;
   list-style: none;
   border-top: 1px solid $navbar-border-color;
 }
