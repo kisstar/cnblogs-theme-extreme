@@ -1,6 +1,6 @@
-$prefix-cls: 'kisstar';
-$media-breakpoint: 992px;
-$media-down-breakpoint: 991.98px;
+$prefix-cls: 'kisstar' !default;
+$media-breakpoint: 992px !default;
+$media-down-breakpoint: 991.98px !default;
 
 // 系统色板 - 基础色板
 $blue-base: #096dd9 !default;
@@ -29,7 +29,7 @@ $black: #000 !default;
 
 // 产品色板 - 品牌色
 $primary: $cyan !default;
-$secondary: #e6fffe !default;
+$secondary: #26d7eb !default;
 
 // 产品色板 - 功能色板
 $success: $green !default;
@@ -90,8 +90,8 @@ $disabled-bg: hsl(0, 0, 96%) !default;
 $link-decoration: none !default;
 $link-hover-decoration: underline !default;
 
-$link-color: $blue-base !default;
-$link-hover-color: lighten($link-color, 15%) !default;
+$link-color: $secondary !default;
+$link-hover-color: darken($link-color, 15%) !default;
 
 // border
 $border-radius-base: 0.125rem !default;
