@@ -6,6 +6,7 @@ $sidebar-prefix-cls: $prefix-cls + '-sidebar';
 
 #home {
   position: absolute;
+  right: 0;
   left: 0;
   transition: left 500ms ease-in;
 

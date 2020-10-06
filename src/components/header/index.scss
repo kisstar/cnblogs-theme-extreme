@@ -1,4 +1,4 @@
-/* stylelint-disable selector-max-id */
+/* stylelint-disable selector-max-id, selector-class-pattern */
 
 @import '../../styles/theme';
 
@@ -14,7 +14,7 @@ $header-prefix-cls: $prefix-cls + '-header';
 
 #blogTitle {
   position: relative;
-  height: 600px;
+  height: 500px;
   padding: 16px;
   background-image: linear-gradient(#00c1de, #000),
     url('https://images.cnblogs.com/cnblogs_com/dongwanhong/1857964/o_201005115230landscape.jpeg');
@@ -83,6 +83,41 @@ $header-prefix-cls: $prefix-cls + '-header';
   }
 }
 
+// post
+.#{$post-prefix-cls} {
+  .#{$header-prefix-cls}-post-info {
+    color: $header-post-info-color;
+
+    [href*='EditPosts'] {
+      display: none;
+    }
+  }
+
+  // .postTitle {}
+
+  .postDesc {
+    margin-bottom: 1rem;
+  }
+
+  #BlogPostCategory {
+    line-height: 22px;
+
+    a {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 12px;
+      background: $header-post-info-tag-bg;
+      border-radius: 15px;
+
+      &::before {
+        display: inline-block;
+        margin-right: 2px;
+        content: '#';
+      }
+    }
+  }
+}
+
 @media (max-width: $media-down-breakpoint) {
   #nav_main {
     justify-content: center;
@@ -94,5 +129,13 @@ $header-prefix-cls: $prefix-cls + '-header';
 
   #nav_right {
     padding: 0;
+  }
+}
+
+@media (min-width: $media-breakpoint) {
+  .#{$header-prefix-cls}-post-info {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 4rem 0;
   }
 }
