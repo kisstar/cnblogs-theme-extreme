@@ -14,7 +14,7 @@ $header-prefix-cls: $prefix-cls + '-header';
 
 #blogTitle {
   position: relative;
-  height: 500px;
+  height: 600px;
   padding: 16px;
   background-image: linear-gradient(#00c1de, #000),
     url('https://images.cnblogs.com/cnblogs_com/dongwanhong/1857964/o_201005115230landscape.jpeg');
@@ -84,7 +84,15 @@ $header-prefix-cls: $prefix-cls + '-header';
 }
 
 @media (max-width: $media-down-breakpoint) {
+  #nav_main {
+    justify-content: center;
+  }
+
   #nav_left {
     display: none;
+  }
+
+  #nav_right {
+    padding: 0;
   }
 }

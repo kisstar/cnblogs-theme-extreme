@@ -87,7 +87,8 @@
 }
 
 #nav_next_page {
-  padding: 2rem;
+  padding-top: 3.125rem;
+  padding-bottom: 8rem;
   text-align: center;
 }
 
@@ -97,7 +98,8 @@
 }
 
 #homepage_bottom_pager {
-  padding: 2rem;
+  padding-top: 3.125rem;
+  padding-bottom: 8rem;
 }
 
 @media (max-width: $media-down-breakpoint) {
