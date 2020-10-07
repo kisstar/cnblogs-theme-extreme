@@ -29,3 +29,8 @@ $content-pagination-border-color: $border-color-base !default;
 // footer
 $footer-bg: $gray-900;
 $footer-color: $white;
+
+// code
+$code-border-color: $border-color-base; // or #e1e4e8
+$code-copy-btn-border-color: $border-color-base; // or rgba(27, 31, 35, 0.15)
+$code-line-number-color: $gray-500; // or rgba(27, 31, 35, 0.3)

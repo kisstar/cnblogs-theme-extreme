@@ -1,5 +1,8 @@
 import { AnyFunction, AnyObject } from './interface';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+export function noop(...arguments_: any[]): any {}
+
 /**
  * @param {Function} method  The function to throttle
  * @param {Object} [context={}] The value to use as this when calling method
@@ -33,4 +36,29 @@ export function debounce(method: AnyFunction, delay = 0, context: AnyObject = {}
       method.call(context);
     }, delay);
   };
+}
+
+/**
+ * @description
+ * 向系统粘贴板写入内容
+ * 有两种方式可以让浏览器扩展与系统剪贴板交互: Document.execCommand() 方法以及现代的异步的 Clipboard API
+ * 前者现在已过时，尽管它在某些浏览器中仍然可以工作，但最好尽量避免使用它
+ * @param {string} source 写入系统粘贴板的内容
+ * @returns {boolean} 是否写入成功
+ */
+export async function copy(source: string): Promise<boolean> {
+  if (navigator.clipboard) {
+    await navigator.clipboard.writeText(source);
+    return true;
+  }
+
+  if (document.execCommand) {
+    const $input = $(`<input  value=${source} type="hidden"/>`);
+    ($input.appendTo($('body')).get(0) as HTMLInputElement).select();
+    const result = document.execCommand('Copy');
+    $input.remove();
+    return result;
+  }
+
+  return false;
 }

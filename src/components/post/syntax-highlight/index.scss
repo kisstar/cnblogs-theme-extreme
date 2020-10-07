@@ -1,0 +1,48 @@
+@import '../../../styles/theme';
+
+$code-prefix-cls: $prefix-cls + '-code';
+$copy-btn-line-height: 27px;
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  border: 1px solid $border-color-base;
+  border-radius: 6px;
+}
+
+.#{$code-prefix-cls}-hljs-ln .#{$code-prefix-cls}-ln-num {
+  display: inline-block;
+  width: 3em;
+  text-align: center;
+}
+
+.#{$code-prefix-cls}-hljs-ln .#{$code-prefix-cls}-ln-num::before {
+  color: $code-line-number-color;
+  content: attr(data-num);
+}
+
+.#{$code-prefix-cls}-container {
+  position: relative;
+  overflow: hidden;
+
+  // 显示复制按钮
+  &:hover {
+    .#{$code-prefix-cls}-copy-btn {
+      top: 0;
+    }
+  }
+
+  // 复制按钮
+  .#{$code-prefix-cls}-copy-btn {
+    position: absolute;
+    top: -$copy-btn-line-height - 1px;
+    right: 0;
+    padding: 0 15px;
+    line-height: $copy-btn-line-height;
+    border-bottom: 1px solid $code-copy-btn-border-color;
+    border-left: 1px solid $code-copy-btn-border-color;
+    border-bottom-left-radius: 15px;
+    cursor: pointer;
+    transition: top 350ms ease-in;
+  }
+}
