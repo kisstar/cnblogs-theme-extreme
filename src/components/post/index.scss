@@ -1,1 +1,30 @@
-//
+/* stylelint-disable selector-max-id */
+
+@import '../../styles/theme';
+
+#cnblogs_post_body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .hljs {
+    margin-bottom: 1rem;
+  }
+
+  code {
+    padding: 0.2em 0.4em;
+    background-color: $post-code-bg;
+    border-radius: 6px;
+  }
+}

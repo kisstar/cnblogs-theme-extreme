@@ -1,4 +1,5 @@
 import './preset';
+import './components/message';
 import './components/navbar';
 import './components/sidebar';
 import './components/header';

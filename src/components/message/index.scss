@@ -1,0 +1,54 @@
+@import '../../styles/theme';
+
+$messagge-prefix-cls: $prefix-cls + '-message';
+
+.#{$messagge-prefix-cls}-container {
+  position: fixed;
+  top: 8px;
+  left: 0;
+  z-index: $zindex-popover;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.#{$messagge-prefix-cls}-wrap {
+  margin-bottom: 1rem;
+}
+
+.#{$messagge-prefix-cls} {
+  display: inline-block;
+  // min-width: 15rem;
+  padding: 10px 16px;
+  line-height: 24px;
+  background-color: $message-bg;
+  box-shadow: $message-box-shadow;
+
+  svg {
+    vertical-align: middle;
+  }
+}
+
+.#{$messagge-prefix-cls}-success {
+  svg {
+    color: $success;
+  }
+}
+
+.#{$messagge-prefix-cls}-error {
+  svg {
+    color: $danger;
+  }
+}
+
+.#{$messagge-prefix-cls}-info {
+  svg {
+    color: $info;
+  }
+}
+
+.#{$messagge-prefix-cls}-warn {
+  svg {
+    color: $warning;
+  }
+}

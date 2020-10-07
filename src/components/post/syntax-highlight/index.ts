@@ -1,5 +1,6 @@
 import { PREFIX_CLS } from '../../../config';
 import { copy, noop } from '../../../lib/utils';
+import message from '../../message';
 import './index.scss';
 
 // 在默认的样式中 .cnblogs-markdown 下的样式更多的是对代码样式进行修饰
@@ -59,11 +60,12 @@ function supportReplication() {
   $('code.hljs')
     .parent()
     .addClass(`${PREFIX_CLS}-code-container`)
-    .append($(`<span class="${codeCopyButtonClass}">copy</span>`));
+    .append($(`<span class="${codeCopyButtonClass}">复制代码</span>`));
   $(`.${codeCopyButtonClass}`).click(function handleClick(this: HTMLSpanElement) {
     copy($(this).prev().text())
       .then(() => {
         // 如果有的话应该使用 message 模块进行提示
+        message.success('复制成功');
         return true;
       })
       .catch(noop);

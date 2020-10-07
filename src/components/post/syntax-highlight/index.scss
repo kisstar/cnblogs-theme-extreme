@@ -5,7 +5,9 @@ $copy-btn-line-height: 27px;
 
 .hljs {
   display: block;
+  padding: 1rem 0 !important;
   overflow-x: auto;
+  background-color: $post-hljs-code-bg !important;
   border: 1px solid $border-color-base;
   border-radius: 6px;
 }
@@ -44,5 +46,6 @@ $copy-btn-line-height: 27px;
     border-bottom-left-radius: 15px;
     cursor: pointer;
     transition: top 350ms ease-in;
+    user-select: none;
   }
 }

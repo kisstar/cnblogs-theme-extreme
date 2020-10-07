@@ -21,10 +21,14 @@ $header-search-bg: $white !default;
 $header-post-info-color: $white !default;
 $header-post-info-tag-bg: $secondary !default;
 
-// content
+// content(blog list)
 $content-title-color: $text-color !default;
 $content-post-border-color: $gray-200 !default; // or #f0f0f0
 $content-pagination-border-color: $border-color-base !default;
+
+// post
+$post-code-bg: darken($gray-100, 3%); // or rgba(27, 31, 35, 0.05)
+$post-hljs-code-bg: lighten($gray-100, 2%); // or #f6f8fa
 
 // footer
 $footer-bg: $gray-900;
@@ -34,3 +38,7 @@ $footer-color: $white;
 $code-border-color: $border-color-base; // or #e1e4e8
 $code-copy-btn-border-color: $border-color-base; // or rgba(27, 31, 35, 0.15)
 $code-line-number-color: $gray-500; // or rgba(27, 31, 35, 0.3)
+
+// message
+$message-bg: $white;
+$message-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
