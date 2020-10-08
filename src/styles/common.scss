@@ -26,3 +26,19 @@ a {
 .no-scroll {
   overflow: hidden;
 }
+
+// ?? #opt_under_post
+// 系统的推荐文章列表
+#ad_t2,
+// 广告图片
+#cnblogs_c1,
+// 系统相关博文
+#under_post_news,
+// 广告图片
+#cnblogs_c2,
+// 最新IT新闻
+#under_post_kb,
+// 历史上的今天
+#HistoryToday {
+  display: none !important;
+}
