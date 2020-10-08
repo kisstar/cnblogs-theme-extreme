@@ -1,0 +1,14 @@
+@import '../../styles/theme';
+
+$toolbar-prefix-cls: $prefix-cls + '-toolbar';
+
+.#{$toolbar-prefix-cls}-container {
+  position: fixed;
+  right: 1%;
+  bottom: 5%;
+  z-index: $zindex-fixed;
+  width: 42px;
+  font-size: 24px;
+  background-color: $toolbar-backtop-bg;
+  border: 1px solid $toolbar-border-color;
+}

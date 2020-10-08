@@ -6,4 +6,5 @@ import './components/header';
 import './components/content';
 import './components/post';
 import './components/footer';
+import './components/toolbar';
 import './styles/index.scss';

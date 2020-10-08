@@ -1,0 +1,18 @@
+@import '../../../styles/theme';
+
+$backtop-prefix-cls: $prefix-cls + '-backtop';
+
+.#{$backtop-prefix-cls} {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: $toolbar-bg;
+  border-width: 0;
+  outline: none;
+  cursor: pointer;
+
+  svg {
+    color: $toolbar-backtop-color;
+  }
+}
