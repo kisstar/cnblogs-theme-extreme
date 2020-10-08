@@ -16,6 +16,8 @@
         "border-in-box-model": false,
         "empty-line-between-groups": false
       }
-    ]
+    ],
+    "selector-max-id": null,
+    "selector-class-pattern": null
   }
 }
