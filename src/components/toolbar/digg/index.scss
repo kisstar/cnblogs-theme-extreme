@@ -1,0 +1,19 @@
+#div_digg {
+  display: flex;
+  flex-direction: column;
+  float: none;
+  width: auto;
+  margin: 0;
+
+  .diggit,
+  .buryit {
+    width: auto;
+    margin: 0;
+    background-size: 100% 100%;
+  }
+
+  // ???
+  #digg_tips {
+    display: none;
+  }
+}
