@@ -10,8 +10,11 @@ $navbar-toggler-border-color: $border-color-base !default;
 $navbar-border-color: $border-color-base !default;
 
 // sidebar
+$sidebar-color: $white !default;
+$sidebar-title-color: $secondary;
 $sidebar-bg: $gray-800 !default;
 $sidebar-hover-bg: $gray-900 !default;
+$sidebar-follow-border-color: $gray-700;
 
 // header
 $header-title-color: $white !default;

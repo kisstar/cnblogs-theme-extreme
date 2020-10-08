@@ -1,0 +1,15 @@
+@mixin follow-btn {
+  a {
+    display: block;
+    margin-top: 14px;
+    padding: 7px 0;
+    text-align: center;
+    border: 1px solid $sidebar-follow-border-color;
+    border-radius: 4px;
+  }
+
+  a:hover {
+    text-decoration: none;
+    background-color: $sidebar-hover-bg;
+  }
+}

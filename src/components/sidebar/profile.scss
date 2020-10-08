@@ -1,0 +1,64 @@
+@import './mixin';
+
+#author_profile {
+  float: none;
+  width: 100%;
+
+  // 图片和信息共享的样式，主要是针对浮动
+  .author_profile_info {
+    float: none;
+  }
+
+  .author_avatar {
+    display: block;
+    float: none;
+    width: 80%;
+    max-width: 120px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+}
+
+// 关注
+#p_b_follow,
+#author_profile_follow // 博文页
+{
+  @include follow-btn;
+}
+
+// 关注、粉丝
+#author_profile_detail {
+  // text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem; // 给用户昵称预留位置
+
+  // 用户昵称
+  a:first-child {
+    position: absolute; // 绝对定位使其脱离其它兄弟元素
+    top: 0.5rem;
+  }
+
+  a:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
+
+// ================== 分割线 ==================
+
+#sidebar_news {
+  color: $sidebar-color;
+
+  #profile_block {
+    a {
+      color: $gray-500;
+    }
+  }
+}
+
+.catListTitle {
+  padding: 10px 20px;
+  text-align: center;
+  background-color: $sidebar-title-color;
+}
