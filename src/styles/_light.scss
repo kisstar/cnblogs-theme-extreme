@@ -33,6 +33,12 @@ $content-pagination-border-color: $border-color-base !default;
 $post-code-bg: darken($gray-100, 3%); // or rgba(27, 31, 35, 0.05)
 $post-hljs-code-bg: lighten($gray-100, 2%); // or #f6f8fa
 
+$post-green-channel-wechat-bg: $green;
+$post-green-channel-weibo-bg: $gray-200;
+$post-green-channel-weibo-favorite: #ffb515;
+$post-green-channel-weibo-follow: rgb(227 49 0);
+$post-green-channel-weibo-digg: rgb(45 174 191);
+
 // footer
 $footer-bg: $gray-900;
 $footer-color: $white;

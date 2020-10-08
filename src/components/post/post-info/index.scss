@@ -1,0 +1,50 @@
+@import '../../../styles/theme';
+
+#blog_post_info_block {
+  #green_channel {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    padding: 2rem 0;
+
+    a {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 6.4px 20px 0;
+      background-size: 100% 100%;
+      border-radius: 30px;
+      transition: transform 300ms ease-in;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    #green_channel_wechat {
+      background-color: $post-green-channel-wechat-bg;
+      box-shadow: 0 15px 18px -6px $post-green-channel-wechat-bg;
+    }
+
+    #green_channel_weibo {
+      background-color: $post-green-channel-weibo-bg;
+      box-shadow: 0 15px 18px -6px darken($color: $post-green-channel-weibo-bg, $amount: 50%);
+    }
+
+    #green_channel_favorite {
+      background-color: $post-green-channel-weibo-favorite;
+      box-shadow: 0 15px 18px -6px $post-green-channel-weibo-favorite;
+    }
+
+    #green_channel_follow {
+      background-color: $post-green-channel-weibo-follow;
+      box-shadow: 0 15px 18px -6px $post-green-channel-weibo-follow;
+    }
+
+    #green_channel_digg {
+      background-color: $post-green-channel-weibo-digg;
+      box-shadow: 0 15px 18px -6px $post-green-channel-weibo-digg;
+    }
+  }
+}
