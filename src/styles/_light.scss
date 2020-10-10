@@ -57,3 +57,26 @@ $toolbar-bg: $white;
 $toolbar-border-color: $border-color-base;
 $toolbar-backtop-bg: $white;
 $toolbar-backtop-color: $secondary;
+
+// comment
+$comment-divider-border-color: $border-color-base;
+$comment-border-color: $border-color-base; // or #d1d5da
+$comment-title-color: $gray-400;
+$comment-title-link-color: darken(
+  $color: $gray-500,
+  $amount: 10%,
+);
+$comment-title-link-hover-color: $secondary;
+$comment-title-bg: $gray-100; // or #f6f8fa
+$comment-blockquote-color: $gray-500; // or #6a737d
+$comment-blockquote-bg: $gray-100; // or #f7f7f7
+$comment-blockquote-border-color: lighten($border-color-base, 6%); // or #dfe2e5
+$comment-vote-link-color: $gray-500;
+$comment-vote-link-hover-color: $secondary;
+$comment-pager-color: $secondary;
+$comment-pager-border-color: $border-color-base;
+$comment-box-border-color: #ddd;
+$comment-submit-btn-color: $white;
+$comment-submit-btn-hover-color: $primary;
+$comment-submit-btn-bg: $secondary;
+$comment-submit-btn-border-color: $secondary;

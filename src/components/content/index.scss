@@ -10,7 +10,7 @@
 // }
 
 .forFlow {
-  width: 50%;
+  width: 75%;
   // max-width: 46.875.rem;
   margin: 0 auto;
   padding-left: 1rem;
@@ -103,6 +103,6 @@
 @media (max-width: $media-down-breakpoint) {
   .forFlow {
     width: 100%;
-    padding: 0 1rem;
+    padding: 0;
   }
 }

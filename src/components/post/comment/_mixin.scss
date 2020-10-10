@@ -1,0 +1,16 @@
+@mixin right-divide-title {
+  position: relative;
+  margin: 3rem 0 1.5rem;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 4rem;
+    width: 100%;
+    border-top: 1px solid $comment-divider-border-color;
+    border-bottom: 0;
+    transform: translateY(50%);
+    content: ' ';
+  }
+}

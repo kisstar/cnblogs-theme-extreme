@@ -1,0 +1,223 @@
+// stylelint-disable no-descending-specificity
+
+@import '../../../styles/theme';
+@import './mixin';
+
+$comment-prefix-cls: $prefix-cls + '-comment';
+$arrow-border-width: 8px;
+
+// 顶部的评论分页器
+#comment_pager_top {
+  display: none;
+}
+
+#blog-comments-placeholder {
+  .feedback_area_title {
+    @include right-divide-title;
+  }
+
+  .feedbackItem {
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .#{$comment-prefix-cls}-avatar {
+    position: absolute;
+    top: 8px;
+    left: 4px;
+    z-index: 1;
+
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+  }
+
+  .feedbackListSubtitle {
+    position: relative;
+    padding: 8px 16px 8px 38px;
+    color: $comment-title-color;
+    background-color: $comment-title-bg;
+    border: 1px solid $comment-border-color;
+    border-bottom: 0;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    a {
+      color: $comment-title-link-color;
+      font-weight: 600;
+
+      &:hover {
+        color: $comment-title-link-hover-color;
+      }
+    }
+
+    .feedbackManage {
+      float: right;
+    }
+  }
+
+  .feedbackCon {
+    padding: 1rem;
+    border: 1px solid $comment-border-color;
+  }
+
+  blockquote {
+    margin: 0 0 1rem;
+    padding: 0.5rem;
+    color: $comment-blockquote-color;
+    background-color: $comment-blockquote-bg;
+    border-width: 0;
+    border-left: 4px solid $comment-blockquote-border-color;
+  }
+
+  .comment_vote {
+    a {
+      color: $comment-vote-link-color;
+      &:hover {
+        color: $comment-vote-link-hover-color;
+      }
+    }
+  }
+}
+
+#comment_pager_bottom {
+  .pager {
+    a,
+    span {
+      display: inline-block;
+      min-width: 2rem;
+      height: 2rem;
+      padding: 0 0.375rem;
+      line-height: 1.875rem;
+    }
+
+    a {
+      color: $comment-pager-color;
+      border: 1px solid $comment-pager-border-color;
+    }
+
+    .current {
+      background-color: $comment-pager-color;
+      border: 1px solid $comment-pager-border-color;
+    }
+  }
+}
+
+#comment_form {
+  padding-bottom: 8rem;
+
+  // 刷新评论、刷新页面、返回顶部
+  #comment_nav {
+    display: none;
+  }
+
+  #commentform_title {
+    @include right-divide-title;
+
+    &::after {
+      left: 6rem;
+    }
+  }
+
+  .comment_textarea {
+    width: auto;
+    margin-bottom: 0;
+    border-bottom-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+  }
+
+  #commentbox_opt {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 0;
+    padding: 1rem 1rem 0.5rem;
+    line-height: 32px;
+    border: 1px solid $comment-box-border-color;
+    border-top-width: 0;
+  }
+
+  .comment_btn {
+    width: auto;
+    height: auto;
+    margin-left: 16px;
+    padding: 5px 16px;
+    color: $comment-submit-btn-color;
+    background-color: $comment-submit-btn-bg;
+    border-color: $comment-submit-btn-border-color;
+    border-width: 0;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $comment-submit-btn-hover-color;
+    }
+  }
+
+  #tip_comment2 + p {
+    color: $muted-color;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  // 首页、新闻、博问、专区、闪存、班级
+  .under-comment-nav {
+    display: none;
+  }
+}
+
+@media (min-width: $media-breakpoint) {
+  .feedbackItem {
+    padding: 1rem 0 1rem 3.5rem;
+  }
+
+  #blog-comments-placeholder {
+    .#{$comment-prefix-cls}-avatar {
+      top: 1rem;
+      left: 2px;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .feedbackListSubtitle {
+      padding: 8px 16px;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        left: -$arrow-border-width * 2;
+        display: block;
+        width: 0;
+        height: 0;
+        transform: translateY(-50%);
+        content: ' ';
+        pointer-events: none;
+      }
+
+      &::before {
+        border: $arrow-border-width solid transparent;
+        border-right-color: $comment-border-color;
+      }
+
+      &::after {
+        margin-left: 2px;
+        border: ($arrow-border-width - 1px) solid transparent;
+        border-right-color: $comment-title-bg;
+      }
+    }
+  }
+
+  #comment_form {
+    .comment_textarea,
+    #commentbox_opt {
+      margin-left: 3.5rem;
+    }
+  }
+}
