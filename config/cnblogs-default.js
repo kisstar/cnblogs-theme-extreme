@@ -1,3 +1,4 @@
+// 针对博客的默认自定义配置
 const config = {
   prefixCls: 'kisstar',
   navbar: {
@@ -33,5 +34,13 @@ const config = {
     ],
   },
 };
+
+// 通过 prefixCls 选项可以设置自定义样式的前缀，为了方便统一设置这里将 prefixCls 作为一个顶层选项
+// Prettier 可以通过 Glimmer 解析器格式化 Handlebars，但却不支持通过 `../` 来修改上下文，导致遍历时不好访问 prefixCls 选项
+// 所以在此将 prefixCls 选项写入循环数据中，以便访问
+config.navbar.list.forEach((item) => {
+  // eslint-disable-next-line no-param-reassign
+  item.prefixCls = config.prefixCls;
+});
 
 module.exports = config;

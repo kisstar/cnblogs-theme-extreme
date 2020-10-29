@@ -54,7 +54,7 @@ class HtmlWebpackHandlerPlugin {
     const templateDelegate = Handlebars.compile(rawString);
     const templateString = templateDelegate(navbarContext);
 
-    this.data.html = htmlString.replace(/<!--done-->\s<div id="home">/, `${templateString}$&`);
+    this.data.html = htmlString.replace(/<!--done-->\s*<div id="home">/, `${templateString}$&`);
     if (process.env.NODE_ENV === 'production') {
       this.data.html = templateString;
     }
