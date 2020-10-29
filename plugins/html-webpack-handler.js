@@ -43,12 +43,12 @@ class HtmlWebpackHandlerPlugin {
     const { html: htmlString } = this.data;
     const rOriginHost = /(https:)?\/\/common\.cnblogs\.com/g;
     const rPicHost = /(src=")(?:https:)?\/\/pic.cnblogs.com(.*.png")/g;
-    const rGoogleAds = /".*adservice\.google\.com\/adsid.*"/g;
+    const rGoogleAds = /[^"]*adservice\.google\.com\/adsid[^"]*/g;
 
     this.data.html = htmlString
       .replace(rOriginHost, '')
       .replace(rPicHost, '$1$2')
-      .replace(rGoogleAds, '""');
+      .replace(rGoogleAds, '');
   }
 
   async addNavbarTemplate() {
