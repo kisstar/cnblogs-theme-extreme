@@ -1,10 +1,12 @@
+const IMAGE_HOST = process.env.NODE_ENV === 'development' ? '' : 'https://images.cnblogs.com';
+
 // 针对博客的默认自定义配置
 const config = {
   prefixCls: 'kisstar',
   navbar: {
     brand: {
       text: "Kisstar's 博客",
-      logo: 'https://images.cnblogs.com/cnblogs_com/dongwanhong/1857964/o_201003115132logo.png',
+      logo: `${IMAGE_HOST}/cnblogs_com/dongwanhong/1857964/o_201003115132logo.png`,
     },
     list: [
       {

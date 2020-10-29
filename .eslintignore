@@ -1,3 +1,7 @@
 # 默认忽略了以点（.）开头的目录
 /node_modules/*
 /dist/*
+
+# 项目中的特定文件
+/public/scripts/*
+/public/highlight/*

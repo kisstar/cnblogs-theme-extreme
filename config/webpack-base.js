@@ -164,7 +164,14 @@ function getWebpackConfig(webpackEnvironment) {
                 },
               },
             },
-            'sass-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                additionalData: isEnvironmentDevelopment
+                  ? `$image-host: '/src/static';`
+                  : `$image-host: 'https://images.cnblogs.com';`,
+              },
+            },
           ],
         },
         {
@@ -179,6 +186,13 @@ function getWebpackConfig(webpackEnvironment) {
             },
           ],
           include: path.resolve(__dirname, '../src'),
+        },
+        {
+          test: [/\.gif$/, /\.jpe?g$/, /\.png$/],
+          loader: require.resolve('file-loader'),
+          options: {
+            name: 'media/[name].[ext]',
+          },
         },
       ],
     },
