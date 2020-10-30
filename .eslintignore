@@ -3,5 +3,14 @@
 /dist/*
 
 # 项目中的特定文件
-/public/scripts/*
+/public/ajax/*
+/public/api/*
+/public/cnblogs_com/*
+/public/css/*
+/public/face/*
+/public/group/*
 /public/highlight/*
+/public/images/*
+/public/scripts/*
+/public/skins/*
+/public/user/*

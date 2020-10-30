@@ -50,6 +50,17 @@
         "prettier/prettier": "error",
         "linebreak-style": [0, "error", "windows"]
       }
+    },
+    {
+      "files": ["plugins/html-webpack-handler/preset.js"],
+      "env": {
+        "browser": true,
+        "es6": true
+      },
+      "globals": {
+        "$": true,
+        "jQuery": true
+      }
     }
   ]
 }

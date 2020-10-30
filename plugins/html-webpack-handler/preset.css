@@ -1,0 +1,11 @@
+.diggit {
+  background: url('/images/upup.gif') no-repeat;
+}
+
+.buryit {
+  background: url('/images/downdown.gif') no-repeat;
+}
+
+#commentform_title {
+  background-image: url('/images/icon_addcomment.gif');
+}
