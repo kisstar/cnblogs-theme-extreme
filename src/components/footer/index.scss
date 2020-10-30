@@ -9,7 +9,7 @@ $footer-height: 150px;
   text-align: center;
   background-color: $footer-bg;
   background-image: linear-gradient(#00c1de, #000),
-    url('https://images.cnblogs.com/cnblogs_com/dongwanhong/1857964/o_201006074439landscape-footer.jpeg');
+    url('#{$image-host}/cnblogs_com/dongwanhong/1857964/o_201006074439landscape-footer.jpeg');
   background-repeat: no-repeat;
   background-position: 100% 100%;
   background-size: 100% $footer-height;

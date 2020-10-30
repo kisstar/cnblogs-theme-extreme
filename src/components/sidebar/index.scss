@@ -35,7 +35,7 @@ $sidebar-prefix-cls: $prefix-cls + '-sidebar';
     right: -12px;
     width: 12px;
     height: 8.625rem;
-    background-image: url('https://images.cnblogs.com/cnblogs_com/dongwanhong/1857964/o_201005073036show_arrow.png');
+    background-image: url('#{$image-host}/cnblogs_com/dongwanhong/1857964/o_201005073036show_arrow.png');
     background-size: 100% 100%;
     cursor: pointer;
     content: ' ';
