@@ -62,3 +62,26 @@ export async function copy(source: string): Promise<boolean> {
 
   return false;
 }
+
+/**
+ * @description
+ * 确保指定的任务在指定条件下执行
+ * @param {Function} condition 得到条件的函数
+ * @param {Function} fn 将被执行的任务
+ * @param {object} context 任务的执行上下文，默认是一个空对象
+ * @param {any[]} rest 剩余参数
+ */
+export function ensureAsync(
+  condition: AnyFunction,
+  fn: AnyFunction,
+  context = {},
+  ...rest: unknown[]
+): void {
+  (function task() {
+    if (condition()) {
+      fn.call(context, ...rest);
+    } else {
+      setTimeout(task);
+    }
+  })();
+}

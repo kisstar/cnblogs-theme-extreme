@@ -1,4 +1,5 @@
 import { PREFIX_CLS, BRAND, IS_POST } from '../../config';
+import { ensureAsync } from '../../lib/utils';
 import './index.scss';
 
 const htmlTemplate = `
@@ -11,7 +12,14 @@ const $navigator = $('#navigator');
 
 // 添加个人信息
 if (IS_POST) {
-  $('#author_profile').prependTo($navigator);
+  ensureAsync(
+    () => {
+      return !!$('#author_profile')[0];
+    },
+    () => {
+      $('#author_profile').insertAfter($navigator.find('.kisstar-sidebar-brand'));
+    },
+  );
 } else {
   $('#sidebar_news').prependTo($navigator);
 }
