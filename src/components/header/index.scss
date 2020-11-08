@@ -97,11 +97,12 @@ $header-prefix-cls: $prefix-cls + '-header';
     margin-bottom: 1rem;
   }
 
-  #BlogPostCategory {
+  #EntryTag {
     line-height: 22px;
 
     a {
       display: inline-block;
+      margin-bottom: 0.5rem;
       padding: 2px 10px;
       font-size: 12px;
       background: $header-post-info-tag-bg;
@@ -113,10 +114,6 @@ $header-prefix-cls: $prefix-cls + '-header';
         content: '#';
       }
     }
-  }
-
-  #sideBar {
-    display: none;
   }
 
   #profile_block {

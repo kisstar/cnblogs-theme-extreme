@@ -1,19 +1,33 @@
 @import '../../styles/theme';
 
-#main {
-  padding-top: 3.125rem;
+.#{$home-prefix-cls} {
+  #main {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 85%;
+    // max-width: 50rem;
+    margin: 10rem auto 0;
+  }
+
+  #sideBar {
+    margin: 2rem 2rem 0 0;
+  }
 }
 
-// 配合限制 .forFlow 的最大宽度
-// #mainContent {
-//   width: 100vw;
-// }
+.#{$post-prefix-cls} {
+  #main {
+    padding-top: 3.125rem;
+  }
 
-.forFlow {
-  width: 75%;
-  // max-width: 46.875.rem;
-  margin: 0 auto;
-  padding-left: 1rem;
+  #sideBar {
+    display: none;
+  }
+
+  .forFlow {
+    width: 75%;
+    margin: 0 auto;
+    padding-left: 1rem;
+  }
 }
 
 .topicListFooter {
@@ -101,8 +115,21 @@
 }
 
 @media (max-width: $media-down-breakpoint) {
-  .forFlow {
-    width: 100%;
-    padding: 0;
+  .#{$home-prefix-cls} {
+    #main {
+      flex-direction: column;
+      margin-top: 3.125rem;
+    }
+
+    #sideBar {
+      margin: -6rem 0 8rem;
+    }
+  }
+
+  .#{$post-prefix-cls} {
+    .forFlow {
+      width: 100%;
+      padding: 0;
+    }
   }
 }
