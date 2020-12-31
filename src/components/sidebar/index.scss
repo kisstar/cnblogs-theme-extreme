@@ -33,6 +33,7 @@ $sidebar-prefix-cls: $prefix-cls + '-sidebar';
     position: fixed;
     top: $navbar-height + 0.5rem;
     right: -12px;
+    z-index: $zindex-fixed;
     width: 12px;
     height: 8.625rem;
     background-image: url('#{$image-host}/cnblogs_com/dongwanhong/1857964/o_201005073036show_arrow.png');

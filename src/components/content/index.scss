@@ -12,6 +12,10 @@
   #sideBar {
     margin: 2rem 2rem 0 0;
   }
+
+  #sideBarMain {
+    width: 250px;
+  }
 }
 
 .#{$post-prefix-cls} {
@@ -112,6 +116,14 @@
 #homepage_bottom_pager {
   padding-top: 3.125rem;
   padding-bottom: 8rem;
+}
+
+@media (max-width: $media-cnblogs-down-breakpoint) {
+  .#{$home-prefix-cls} {
+    #sideBarMain {
+      width: 100%;
+    }
+  }
 }
 
 @media (max-width: $media-down-breakpoint) {
