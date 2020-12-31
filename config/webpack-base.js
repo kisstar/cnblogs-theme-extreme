@@ -188,8 +188,8 @@ function getWebpackConfig(webpackEnvironment) {
           include: path.resolve(__dirname, '../src'),
         },
         {
-          test: [/\.gif$/, /\.jpe?g$/, /\.png$/],
-          loader: require.resolve('file-loader'),
+          test: [/\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/],
+          loader: require.resolve('url-loader'),
           options: {
             name: 'media/[name].[ext]',
           },
