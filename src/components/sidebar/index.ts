@@ -1,9 +1,9 @@
-import { PREFIX_CLS, BRAND, IS_POST } from '../../config';
+import { PREFIX_CLS, BRAND, IS_POST, USER_INFO } from '../../config';
 import { ensureAsync } from '../../lib/utils';
 import './index.scss';
 
 const htmlTemplate = `
-  <a class="${PREFIX_CLS}-sidebar-brand" href="#">
+  <a class="${PREFIX_CLS}-sidebar-brand" href="/${USER_INFO.username}">
     <img src="${BRAND.logo}" width="30" height="30">
     ${BRAND.text}
   </a>`;

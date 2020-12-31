@@ -14,3 +14,7 @@ export const BRAND = {
   text: "Kisstar's 博客",
   logo: `${IMAGE_HOST}/cnblogs_com/dongwanhong/1857964/o_201003115132logo.png`,
 };
+
+export const USER_INFO = {
+  username: 'dongwanhong',
+};

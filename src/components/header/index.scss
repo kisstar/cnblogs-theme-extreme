@@ -129,6 +129,12 @@ $header-prefix-cls: $prefix-cls + '-header';
   }
 }
 
+@media (max-width: $media-cnblogs-down-breakpoint) {
+  #header {
+    margin-top: -10px;
+  }
+}
+
 @media (max-width: $media-down-breakpoint) {
   #nav_main {
     justify-content: center;

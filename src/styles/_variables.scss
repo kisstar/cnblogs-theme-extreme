@@ -3,6 +3,7 @@ $home-prefix-cls: $prefix-cls + '-home' !default;
 $post-prefix-cls: $prefix-cls + '-post' !default;
 $media-breakpoint: 992px !default;
 $media-down-breakpoint: 991.98px !default;
+$media-cnblogs-down-breakpoint: 767px !default;
 
 // 系统色板 - 基础色板
 $blue-base: #096dd9 !default;
