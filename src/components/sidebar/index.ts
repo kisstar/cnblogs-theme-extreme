@@ -14,10 +14,10 @@ const $navigator = $('#navigator');
 if (IS_POST) {
   ensureAsync(
     () => {
-      return !!$('#author_profile')[0];
+      return !!$('#author_profile')[0] && !!$(`.${PREFIX_CLS}-sidebar-brand`)[0];
     },
     () => {
-      $('#author_profile').insertAfter($navigator.find('.kisstar-sidebar-brand'));
+      $('#author_profile').insertAfter($(`.${PREFIX_CLS}-sidebar-brand`));
     },
   );
 } else {
