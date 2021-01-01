@@ -78,9 +78,10 @@ class HtmlWebpackHandlerPlugin {
       return;
     }
 
-    const { prefixCls, navbar } = this.config;
+    const { username, prefixCls, navbar } = this.config;
     const { brand, list } = navbar;
     const navbarContext = {
+      username,
       prefixCls,
       title: typeof brand === 'string' ? brand : brand.text,
       logo: brand.logo,

@@ -2,6 +2,7 @@ const IMAGE_HOST = process.env.NODE_ENV === 'development' ? '' : 'https://images
 
 // 针对博客的默认自定义配置
 const config = {
+  username: 'dongwanhong',
   prefixCls: 'kisstar',
   navbar: {
     brand: {

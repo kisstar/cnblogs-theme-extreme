@@ -156,6 +156,14 @@ $arrow-border-width: 8px;
     }
   }
 
+  #tip_comment {
+    display: none;
+  }
+
+  #tip_comment2 {
+    text-align: right;
+  }
+
   #tip_comment2 + p {
     color: $muted-color;
     font-size: 12px;
