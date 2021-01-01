@@ -1,16 +1,11 @@
-import { ensureAsync } from '../../../lib/utils';
+import onReady from '../../../lib/on-ready';
 import './index.scss';
 
 function addDigg($toolbar: JQuery): void {
-  ensureAsync(
-    () => {
-      return !!$('#author_profile')[0];
-    },
-    () => {
-      const $digg = $('#div_digg');
-      $toolbar.append($digg);
-    },
-  );
+  onReady('#author_profile', () => {
+    const $digg = $('#div_digg');
+    $toolbar.append($digg);
+  });
 }
 
 export default addDigg;

@@ -81,7 +81,7 @@ export function ensureAsync(
     if (condition()) {
       fn.call(context, ...rest);
     } else {
-      setTimeout(task);
+      setTimeout(task, 500);
     }
   })();
 }

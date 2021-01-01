@@ -1,5 +1,5 @@
 import { PREFIX_CLS, BRAND, IS_POST, USER_INFO } from '../../config';
-import { ensureAsync } from '../../lib/utils';
+import onReady from '../../lib/on-ready';
 import './index.scss';
 
 const htmlTemplate = `
@@ -12,14 +12,9 @@ const $navigator = $('#navigator');
 
 // 添加个人信息
 if (IS_POST) {
-  ensureAsync(
-    () => {
-      return !!$('#author_profile')[0] && !!$(`.${PREFIX_CLS}-sidebar-brand`)[0];
-    },
-    () => {
-      $('#author_profile').insertAfter($(`.${PREFIX_CLS}-sidebar-brand`));
-    },
-  );
+  onReady('#author_profile', `.${PREFIX_CLS}-sidebar-brand`, () => {
+    $('#author_profile').insertAfter($(`.${PREFIX_CLS}-sidebar-brand`));
+  });
 } else {
   $('#sidebar_news').prependTo($navigator);
 }

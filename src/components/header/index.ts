@@ -1,5 +1,5 @@
 import { IS_POST, PREFIX_CLS } from '../../config';
-import { ensureAsync } from '../../lib/utils';
+import onReady from '../../lib/on-ready';
 import './index.scss';
 
 const $blogTitle = $('#blogTitle');
@@ -10,23 +10,13 @@ if (IS_POST) {
   $topNav.css({ display: 'none' });
   $blogTitle.append($postInfo.append($('.postTitle')).append($('.postDesc')));
 
-  ensureAsync(
-    () => {
-      return !!$('#EntryTag')[0];
-    },
-    () => {
-      $postInfo.append($('#EntryTag'));
-    },
-  );
+  onReady('#EntryTag', () => {
+    $postInfo.append($('#EntryTag'));
+  });
 
-  ensureAsync(
-    () => {
-      return !!$('#profile_block')[0];
-    },
-    () => {
-      $blogTitle.append($('#profile_block').find('br').remove().end());
-    },
-  );
+  onReady('#profile_block', () => {
+    $blogTitle.append($('#profile_block').find('br').remove().end());
+  });
 } else {
   $blogTitle.append($('#zzk_search')).append($topNav);
 }
