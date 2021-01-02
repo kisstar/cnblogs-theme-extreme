@@ -5,8 +5,15 @@ $header-prefix-cls: $prefix-cls + '-header';
 #header {
   margin-top: $navbar-height;
 
-  a {
+  #Header1_HeaderTitle,
+  #cb_post_title_url,
+  #EntryTag a {
     color: $header-title-color;
+  }
+
+  // 加关注的按钮
+  #p_b_follow {
+    display: none;
   }
 }
 
