@@ -14,3 +14,47 @@
     content: ' ';
   }
 }
+
+@mixin title-link {
+  a {
+    color: $comment-title-link-color;
+    font-weight: 600;
+
+    &:hover {
+      color: $comment-title-link-hover-color;
+    }
+  }
+}
+
+@mixin title-triangle {
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    left: -$arrow-border-width * 2;
+    display: block;
+    width: 0;
+    height: 0;
+    transform: translateY(-50%);
+    content: ' ';
+    pointer-events: none;
+  }
+
+  &::before {
+    border: $arrow-border-width solid transparent;
+    border-right-color: $comment-border-color;
+  }
+
+  &::after {
+    margin-left: 2px;
+    border: ($arrow-border-width - 1px) solid transparent;
+    border-right-color: $comment-title-bg;
+  }
+}
+
+@media (max-width: $media-cnblogs-down-breakpoint) {
+  #comment_form {
+    margin-left: 0;
+  }
+}

@@ -18,3 +18,6 @@ export const BRAND = {
 export const USER_INFO = {
   username: 'dongwanhong',
 };
+
+export const DEFAULT_AVATAR =
+  'https://images.cnblogs.com/cnblogs_com/dongwanhong/1857964/o_210102054313user.png';
