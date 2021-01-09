@@ -1,9 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Handlebars = require('handlebars');
-
-const resloveTemplate = (name) => path.resolve(__dirname, '../../src/templates', `${name}.hbs`);
+const { getHeader } = require('../html-webpack-template/template');
 
 class HtmlWebpackHandlerPlugin {
   constructor(config) {
@@ -78,22 +76,8 @@ class HtmlWebpackHandlerPlugin {
       return;
     }
 
-    const { username, prefixCls, navbar } = this.config;
-    const { brand, list } = navbar;
-    const navbarContext = {
-      username,
-      prefixCls,
-      title: typeof brand === 'string' ? brand : brand.text,
-      logo: brand.logo,
-      list,
-    };
-    const rawString = await fs.readFile(resloveTemplate('navbar'), 'utf8');
-    const templateDelegate = Handlebars.compile(rawString);
-    const templateString = templateDelegate(navbarContext);
+    const templateString = await getHeader();
     this.data.html = htmlString.replace(/<!--done-->\s*<div id="home">/, `${templateString}$&`);
-
-    // 生成模式下只需要新添加的导航部分
-    if (process.env.NODE_ENV === 'production') this.data.html = templateString;
   }
 }
 

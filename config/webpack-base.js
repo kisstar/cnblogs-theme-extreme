@@ -14,9 +14,14 @@ const postcssFlexbugsFixes = require('postcss-flexbugs-fixes');
 const postcssPresetEnv = require('postcss-preset-env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHandlerPlugin = require('../plugins/html-webpack-handler');
+const HtmlWebpackTemplatePlugin = require('../plugins/html-webpack-template');
 const cnblogsConfig = require('./cnblogs-default');
 
 function getHtmlConfig(isEnvironmentDevelopment) {
+  if (!isEnvironmentDevelopment) {
+    return [];
+  }
+
   const rFile = /^\w+\.html$/;
   const directories = fs.readdirSync(path.resolve(__dirname, '../src/pages'));
 
@@ -27,17 +32,16 @@ function getHtmlConfig(isEnvironmentDevelopment) {
         return new HtmlWebpackPlugin({
           template: path.resolve(__dirname, '../src/pages', file),
           filename,
-          inject: isEnvironmentDevelopment,
+          inject: true,
         });
       }
       return false;
     })
     .concat(
-      isEnvironmentDevelopment &&
-        new HtmlWebpackPlugin({
-          template: 'public/index.html',
-          chunks: [],
-        }),
+      new HtmlWebpackPlugin({
+        template: 'public/index.html',
+        chunks: [],
+      }),
     )
     .filter(Boolean);
 }
@@ -206,6 +210,7 @@ function getWebpackConfig(webpackEnvironment) {
         }),
       ...htmlPlugins,
       new HtmlWebpackHandlerPlugin(cnblogsConfig),
+      isEnvironmentProduction && new HtmlWebpackTemplatePlugin(cnblogsConfig),
     ].filter(Boolean),
   };
 
