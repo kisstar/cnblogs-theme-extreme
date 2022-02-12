@@ -1,10 +1,8 @@
 # cnblogs-theme-extreme
 
-Black and white, a brief and extreme cnblogs theme.
+针对博客园定制的一套简约主题，专注于阅读。
 
-## 如何使用
-
-简约至上，阅读优先。
+## Usage
 
 1. 进入博客后台的管理标签页；
 2. 设置您的标题和子标题；
@@ -15,3 +13,7 @@ Black and white, a brief and extreme cnblogs theme.
 7. 根据实际情况修改 [HTML](./dist/blog.html) 文件，然后拷贝至**页首 HTML 代码**中；
 8. 前往博客后台的选项标签页；
 9. 控件显示设置仅选中核心的部分：公告、我的标签、随笔分类、博客园链接、首页链接、RSS 订阅、联系、新随笔、阅读排行榜、推荐排行榜等。
+
+## License
+
+MIT
